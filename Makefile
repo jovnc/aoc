@@ -7,9 +7,7 @@ setup:
 	@pip install -r requirements.txt
 
 clean:
-	@rm -rf .venv
-	@rm -rf __pycache__
-	@rm -rf src/*/__pycache__
+	@find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 
 new:
 	@chmod +x scripts/new.sh
