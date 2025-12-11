@@ -13,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run Advent of Code solutions")
     parser.add_argument("--year", type=int, default=2025)
     parser.add_argument("--day", type=int, default=1)
-    parser.add_argument("--type", choices=["input", "test-input"], default="test-input")
+    parser.add_argument("--type", choices=["main", "test"], default="main")
     parser.add_argument("--part", type=int, choices=[1, 2], default=1)
     args = parser.parse_args()
 
@@ -29,7 +29,7 @@ def main():
 
     print(f"Running {args.year} Day {args.day} Part {args.part} with {args.type}...")
     solution = solution_class()
-    file_type = "main" if args.type == "input" else "test"
+    file_type = args.type
     
     if args.part == 1:
         solution.run_part_1(file_type)
