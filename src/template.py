@@ -1,5 +1,5 @@
 from typing import Any
-from solution import Solution
+from src.solution import Solution
 
 
 class SolutionXXXXDX(Solution):
