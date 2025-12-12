@@ -16,8 +16,8 @@ if [ $# -eq 0 ]; then
     read -p "Enter day (default: 1): " input_day
     DAY=${input_day:-1}
     
-    read -p "Enter input type - main/test (default: main): " input_type
-    TYPE=${input_type:-main}
+    read -p "Enter input type - main/test (default: test): " input_type
+    TYPE=${input_type:-test}
 
     read -p "Enter part - 1/2 (default: 1): " input_part
     PART=${input_part:-1}

@@ -16,6 +16,7 @@ new:
 test:clean
 	@chmod +x scripts/run.sh
 	@scripts/run.sh
+	@make clean
 
 run:clean
 	@chmod +x scripts/run.sh
