@@ -21,3 +21,6 @@ test:clean
 run:clean
 	@chmod +x scripts/run.sh
 	@scripts/run.sh
+
+clear:
+	@rm -rf src/2***
