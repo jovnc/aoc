@@ -1,4 +1,4 @@
-from typing import Any, List, Tuple
+from typing import List, Tuple
 from src.solution import Solution
 
 
@@ -23,7 +23,7 @@ class Solution2025D6(Solution):
 
         return res
 
-    def solve_part_2(self, data: Any) -> Any:
+    def solve_part_2(self, data: str) -> int:
         """Solve part 2 of the problem."""
         numbers, operators = self._parse_helper_part_2(data)
         res = 0
