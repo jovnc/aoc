@@ -1,3 +1,4 @@
+from functools import cache
 from typing import List, Tuple
 from src.solution import Solution
 
@@ -44,8 +45,23 @@ class Solution2025D7(Solution):
         return res
 
     def solve_part_2(self, data: List[List[str]]) -> int:
-        """Solve part 2 of the problem."""
-        return 0
+        start_r, start_c = self._find_start_position(data)
+        rows, cols = len(data), len(data[0])
+
+        @cache
+        def dfs(r: int, c: int) -> int:
+            if r >= rows:
+                return 1
+
+            if not (0 <= r < rows and 0 <= c < cols):
+                return 0
+
+            if r + 1 < rows and data[r + 1][c] == SPLIT_CHAR:
+                return dfs(r + 1, c - 1) + dfs(r + 1, c + 1)
+
+            return dfs(r + 1, c)
+
+        return dfs(start_r, start_c)
 
     def _find_start_position(self, grid: List[List[str]]) -> Tuple[int, int]:
         """Find the starting position in the grid."""
