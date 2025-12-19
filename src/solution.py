@@ -9,8 +9,12 @@ FileType = Literal["test", "main"]
 
 @dataclass
 class Solution(abc.ABC):
+    is_test: bool = False
+
     def load_data(self, type: FileType):
         filename = "input.txt" if type == "main" else "test-input.txt"
+        if type == "test":
+            self.is_test = True
         subclass_file = inspect.getfile(self.__class__)
         filepath = Path(subclass_file).parent / filename
         with open(filepath, "r") as f:
