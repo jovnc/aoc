@@ -1,6 +1,5 @@
 from src.utils.ufds import UFDS
-from typing import Tuple
-from typing import List
+from typing import Tuple, List
 from src.utils.coords import Coords3D
 from src.solution import Solution
 
