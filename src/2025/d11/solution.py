@@ -21,7 +21,7 @@ class Solution2025D11(Solution):
         src, dst = "you", "out"
 
         @cache
-        def dfs(u):
+        def dfs(u: str) -> int:
             if u == dst:
                 return 1
             if u not in data:
@@ -31,5 +31,15 @@ class Solution2025D11(Solution):
         return dfs(src)
 
     def solve_part_2(self, data: dict[str, list[str]]) -> int:
-        """Solve part 2 of the problem."""
-        return 0
+        """Find every distinct path from svr to out, must visit fft and dac exactly once"""
+        src, dst = "svr", "out"
+
+        @cache
+        def dfs(u: str, fft: bool, dac: bool) -> int:
+            if u == dst:
+                return int(fft and dac)
+            if u not in data:
+                return 0
+            return sum(dfs(v, fft or v == "fft", dac or v == "dac") for v in data[u])
+
+        return dfs(src, False, False)
